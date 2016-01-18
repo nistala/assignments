@@ -1,0 +1,78 @@
+
+.chat-box {
+  border: 2px solid gray;
+  padding: 0;
+  color: #646464;;
+}
+
+.chat-header {
+  background: blue;
+  padding: 5px;
+}
+
+.chat-header h3 {
+  color: white;
+}
+
+.right-buttons {
+  margin-top: 20px;
+}
+
+.orange-button {
+  background: orange;
+  float: left;
+  margin: 2px;
+  border-radius: 3px;
+}
+
+.orange-button span {
+  color: white;
+  padding: 5px;
+}
+
+.messages {
+  padding: 10px;
+}
+
+.messages li {
+  background: #efefef;
+  list-style: none;
+  padding: 5px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.timestamp {
+  font-size: 10px;
+  margin-top: 10px;
+}
+
+.message {
+  font-size: 12px;
+}
+
+.post-message {
+  margin: 0px auto;
+}
+
+.message-form {
+  text-align: center;
+}
+
+.messagetxt {
+  background: lightblue;
+  height: 60px;
+  width: 90%;
+}
+
+.background-layer {
+    margin: 10px;
+    background: #E2E2E2;
+    padding: 10px;
+}
+
+.post-message {
+}

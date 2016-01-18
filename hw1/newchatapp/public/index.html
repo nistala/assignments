@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js'></script>
+    <title>FSE Chat Room</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  
+  <body ng-app="chatApp">
+    <h1>18-652 Basic Chat Application</h1>
+    <div ng-controller='ChatCtrl'>
+
+      <div class="container">
+        <div class="row">
+            <div class="col-sm-4 chat-box">
+              <div class="chat-header">
+                <h3 class="pull-left">FSE Chat Rooms</h3>
+                <div class="right-buttons pull-right">
+                  <div class="orange-button">
+                    <span class="glyphicon glyphicon-minus" aria-hidden="true" ng-click="chatOpen = !chatOpen"></span>
+                  </div>
+                  <div class="orange-button">
+                    <span class="glyphicon glyphicon-unchecked" aria-hidden="true" ng-click="chatOpen = true"></span>
+                  </div>
+                  <div class="orange-button">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true" ng-click="chatOpen = false"></span>
+                  </div>
+                </div>
+                <div style="clear:both"></div>
+              </div>
+
+              <div class="row chat-body" ng-show="chatOpen">
+                <div class="col-sm-12">
+                  
+                  <ul class="messages">
+                    <li ng-repeat='text in messages.slice().reverse() | filter : filterText'>
+                      <div>
+                        <span class="pull-left name">{{text.username}}</span>
+                        <span class="pull-right timestamp">{{text.timestamp | date:'MM.dd.yyyy hh:mm a'}}</span>
+                        <div style="clear:both"></div>
+                        <span class="message">{{text.message}}</span>
+                      </div>
+                    </li>
+                  </ul>
+
+                  <div class="message-form">
+                    <input type="text" ng-model='userName' placeholder='Enter Your Name'>
+                    <br>
+                    <br>
+                    <textarea type="text" ng-enter='sendMessage()' ng-model='message' class="messagetxt"></textarea>
+                    <br>
+                    <br>
+                    <div class="background-layer">
+                      <button class="btn btn-info post-message" ng-click='sendMessage()'>POST</button>
+                    </div>
+                    <br>
+                    <br>
+                  </div>
+
+                </div>
+              </div>
+
+
+            </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <script type='text/javascript' src='/socket.io/socket.io.js'></script>
+    <script type="text/javascript" src ="client.js"></script>
+  </body>
+</html>
