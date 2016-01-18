@@ -7,3 +7,5 @@ then run
 then run
 
 `node app.js`
+
+then go to http://localhost:3000/
